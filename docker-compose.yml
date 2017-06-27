@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  fake-balance-api:
+    build:
+      context: ./projects/apps/fake-balance-api
+    environment:
+      PORT: 3001
+    ports:
+      - "3001:3001"

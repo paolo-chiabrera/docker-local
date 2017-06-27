@@ -1,0 +1,11 @@
+{
+	"featureBranch": "test-branch",
+	"structure": {
+		"apps":[
+			"https://github.com/paolo-chiabrera/fake-balance-api.git",
+			"https://github.com/paolo-chiabrera/fake-user-api.git"
+		],
+		"fake-nginx": "https://github.com/paolo-chiabrera/fake-nginx.git",
+		"modules": {}
+	}
+}

@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  fake-balance-api:
+    build:
+      context: ./projects/apps/fake-balance-api
+      dockerfile: Dockerfile.dev
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+    volumes:
+     - ./projects/apps/fake-balance-api:/opt/app
+     - /opt/app/node_modules
+    ports:
+      - "3001:3001"
+  fake-user-api:
+    build:
+      context: ./projects/apps/fake-user-api
+      dockerfile: Dockerfile.dev
+    environment:
+      NODE_ENV: development
+      PORT: 3002
+    volumes:
+     - ./projects/apps/fake-user-api:/opt/app
+     - /opt/app/node_modules
+    ports:
+      - "3002:3002"
+  nginx:
+    build:
+      context: ./projects/nginx
+      dockerfile: Dockerfile.dev
+    links:
+      - fake-balance-api
+      - fake-user-api
+    ports:
+      - "80:80"

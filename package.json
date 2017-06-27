@@ -1,0 +1,27 @@
+{
+  "name": "docker-local",
+  "version": "1.0.0",
+  "description": "",
+  "main": "init.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paolo-chiabrera/docker-local.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paolo-chiabrera/docker-local/issues"
+  },
+  "homepage": "https://github.com/paolo-chiabrera/docker-local#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "git-repo-name": "^0.6.0",
+    "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
+    "shelljs": "^0.7.8"
+  },
+  "devDependencies": {}
+}
