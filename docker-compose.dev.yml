@@ -9,8 +9,8 @@ services:
       NODE_ENV: development
       PORT: 3001
     volumes:
-     - ./projects/apps/fake-balance-api:/opt/app
-     - /opt/app/node_modules
+     - ./projects/apps/fake-balance-api:/opt/app/fake-balance-api
+     - /opt/app/fake-balance-api/node_modules
     ports:
       - "3001:3001"
   fake-user-api:
@@ -21,8 +21,8 @@ services:
       NODE_ENV: development
       PORT: 3002
     volumes:
-     - ./projects/apps/fake-user-api:/opt/app
-     - /opt/app/node_modules
+     - ./projects/apps/fake-user-api:/opt/app/fake-user-api
+     - /opt/app/fake-user-api/node_modules
     ports:
       - "3002:3002"
   fake-nginx:
@@ -32,5 +32,18 @@ services:
     links:
       - fake-balance-api
       - fake-user-api
+      - fake-react-site
     ports:
       - "80:80"
+  fake-react-site:
+    build:
+      context: ./projects/sites/fake-react-site
+      dockerfile: Dockerfile.dev
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+    volumes:
+     - ./projects/sites/fake-react-site:/opt/app/fake-react-site
+     - /opt/app/fake-react-site/node_modules
+    ports:
+      - "3000:3000"
