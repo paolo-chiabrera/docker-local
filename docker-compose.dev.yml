@@ -25,9 +25,9 @@ services:
      - /opt/app/node_modules
     ports:
       - "3002:3002"
-  nginx:
+  fake-nginx:
     build:
-      context: ./projects/nginx
+      context: ./projects/fake-nginx
       dockerfile: Dockerfile.dev
     links:
       - fake-balance-api
